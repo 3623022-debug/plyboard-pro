@@ -28,9 +28,10 @@ const Footer = () => (
       <div>
         <div className="font-semibold text-primary-foreground mb-3">Контакты</div>
         <ul className="space-y-2 text-sm">
-          <li>г. Екатеринбург</li>
-          <li><a href="tel:+73430000000" className="hover:text-accent">+7 (343) 000-00-00</a></li>
-          <li><a href="mailto:info@russply.ru" className="hover:text-accent">info@russply.ru</a></li>
+          <li>г. Екатеринбург, ул. Хлебная 17, склад 11</li>
+          <li><a href="tel:+73432713344" className="hover:text-accent">+7 (343) 271-33-44</a></li>
+          <li><a href="mailto:info@ekb-rusply.ru" className="hover:text-accent">info@ekb-rusply.ru</a></li>
+          <li>Пн–Пт 9:00–18:00, Сб–Вс выходной</li>
         </ul>
       </div>
     </div>

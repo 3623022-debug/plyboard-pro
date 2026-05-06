@@ -9,12 +9,22 @@ const TYPES = [
   { id: "tg", name: "Трудногорючая", priceM3: 68000 },
 ];
 
-const SIZES = [
+const ALL_SIZES = [
   { id: "1525", l: 1525, w: 1525 },
+  { id: "1830", l: 1830, w: 1525 },
   { id: "2440", l: 2440, w: 1220 },
   { id: "2500", l: 2500, w: 1250 },
+  { id: "2950", l: 2950, w: 1525 },
   { id: "3000", l: 3000, w: 1500 },
 ];
+
+const SIZES_BY_TYPE: Record<string, string[]> = {
+  fk: ["1525", "2440", "2500"],
+  fsf: ["2440", "2500", "3000"],
+  lam: ["2440", "2500", "3000"],
+  bak: ["2440", "3000"],
+  tg: ["1525", "1830", "2950"],
+};
 
 const THICKNESS = [4, 6, 8, 10, 12, 15, 18, 21, 24, 30, 40];
 
@@ -24,23 +34,32 @@ interface Props {
 
 const Calculator = ({ onOrder }: Props) => {
   const [type, setType] = useState(TYPES[1].id);
-  const [size, setSize] = useState(SIZES[1].id);
+  const availableSizes = useMemo(
+    () => ALL_SIZES.filter(s => SIZES_BY_TYPE[type].includes(s.id)),
+    [type]
+  );
+  const [size, setSize] = useState(availableSizes[0].id);
   const [thick, setThick] = useState(18);
   const [qty, setQty] = useState(50);
   const [mode, setMode] = useState<"sheets" | "area">("sheets");
   const [area, setArea] = useState(100);
 
+  // Reset size when type changes if current size unavailable
+  if (!availableSizes.find(s => s.id === size)) {
+    setSize(availableSizes[0].id);
+  }
+
   const result = useMemo(() => {
     const t = TYPES.find(x => x.id === type)!;
-    const s = SIZES.find(x => x.id === size)!;
-    const sheetArea = (s.l * s.w) / 1_000_000; // m²
-    const sheetVol = sheetArea * (thick / 1000); // m³
+    const s = (availableSizes.find(x => x.id === size) ?? availableSizes[0]);
+    const sheetArea = (s.l * s.w) / 1_000_000;
+    const sheetVol = sheetArea * (thick / 1000);
     const sheets = mode === "sheets" ? qty : Math.ceil(area / sheetArea);
     const totalArea = sheets * sheetArea;
     const totalVol = sheets * sheetVol;
     const price = totalVol * t.priceM3;
     return { sheets, sheetArea, totalArea, totalVol, price, t, s };
-  }, [type, size, thick, qty, mode, area]);
+  }, [type, size, thick, qty, mode, area, availableSizes]);
 
   const summary = `${result.t.name} ${result.s.l}×${result.s.w}×${thick} мм · ${result.sheets} лист. · ${result.totalArea.toFixed(2)} м² · ${result.totalVol.toFixed(3)} м³ · ≈ ${Math.round(result.price).toLocaleString("ru-RU")} ₽`;
 
@@ -70,7 +89,7 @@ const Calculator = ({ onOrder }: Props) => {
 
             <Field label="Формат листа, мм">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {SIZES.map(s => (
+                {availableSizes.map(s => (
                   <button key={s.id} onClick={() => setSize(s.id)} type="button"
                     className={`px-3 py-2.5 rounded-lg text-sm font-semibold border transition-smooth ${size === s.id ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:border-primary"}`}>
                     {s.l}×{s.w}

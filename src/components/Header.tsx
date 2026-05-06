@@ -19,11 +19,11 @@ const Header = () => {
           <a href="#contact" className="hover:text-primary transition-smooth">Контакты</a>
         </nav>
         <a
-          href="tel:+73430000000"
+          href="tel:+73432713344"
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-smooth shadow-soft"
         >
           <Phone className="w-4 h-4" />
-          <span className="hidden sm:inline">+7 (343) 000-00-00</span>
+          <span className="hidden sm:inline">+7 (343) 271-33-44</span>
         </a>
       </div>
     </header>
