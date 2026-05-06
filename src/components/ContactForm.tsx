@@ -51,10 +51,10 @@ const ContactForm = ({ prefillCalc }: Props) => {
           <p className="text-muted-foreground text-lg mb-8">Менеджер подберёт оптимальный материал, согласует логистику и пришлёт счёт.</p>
 
           <div className="space-y-5">
-            <Info icon={MapPin} title="Адрес склада" value="г. Екатеринбург, Свердловская область" />
-            <Info icon={Phone} title="Телефон" value="+7 (343) 000-00-00" href="tel:+73430000000" />
-            <Info icon={Mail} title="Email" value="info@russply.ru" href="mailto:info@russply.ru" />
-            <Info icon={Clock} title="Режим работы" value="Пн–Пт 9:00–18:00, Сб 10:00–15:00" />
+            <Info icon={MapPin} title="Адрес склада" value="г. Екатеринбург, ул. Хлебная 17, склад 11" />
+            <Info icon={Phone} title="Телефон" value="+7 (343) 271-33-44" href="tel:+73432713344" />
+            <Info icon={Mail} title="Email" value="info@ekb-rusply.ru" href="mailto:info@ekb-rusply.ru" />
+            <Info icon={Clock} title="Режим работы" value="Пн–Пт 9:00–18:00, Сб–Вс выходной" />
           </div>
 
           {prefillCalc && (
