@@ -1,4 +1,5 @@
-import { ArrowRight, Truck, ShieldCheck, Warehouse } from "lucide-react";
+import { ArrowRight, Truck, ShieldCheck, Warehouse, Award } from "lucide-react";
+import plywood from "@/assets/plywood.jpg";
 
 const Hero = () => (
   <section id="top" className="relative overflow-hidden bg-hero text-primary-foreground">
@@ -26,11 +27,12 @@ const Hero = () => (
             Получить прайс
           </a>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/10">
           {[
             { icon: Warehouse, t: "5000+", s: "листов на складе" },
-            { icon: Truck, t: "24 часа", s: "отгрузка от заявки" },
+            { icon: Truck, t: "от 1 часа", s: "отгрузка от заявки" },
             { icon: ShieldCheck, t: "ГОСТ", s: "сертификаты качества" },
+            { icon: Award, t: "Гарантия 5 лет", s: "от производителя" },
           ].map((x, i) => (
             <div key={i}>
               <x.icon className="w-5 h-5 text-accent mb-2" />
@@ -42,23 +44,13 @@ const Hero = () => (
       </div>
       <div className="relative hidden lg:block">
         <div className="absolute -inset-8 bg-accent/20 blur-3xl rounded-full" />
-        <div className="relative bg-card-soft text-foreground rounded-2xl p-8 shadow-elegant">
-          <h3 className="font-bold text-xl mb-4 text-primary">Популярные позиции</h3>
-          <div className="space-y-3">
-            {[
-              { n: "Фанера ФК 1525×1525×4 мм", p: "от 850 ₽" },
-              { n: "Фанера ФСФ 2440×1220×18 мм", p: "от 2 100 ₽" },
-              { n: "Ламинированная 2500×1250×18 мм", p: "от 2 850 ₽" },
-              { n: "Бакелитовая 2440×1220×15 мм", p: "от 6 400 ₽" },
-            ].map((x, i) => (
-              <div key={i} className="flex justify-between items-center p-3 rounded-lg bg-background border border-border hover:border-primary transition-smooth">
-                <span className="text-sm font-medium">{x.n}</span>
-                <span className="text-primary font-bold whitespace-nowrap">{x.p}</span>
-              </div>
-            ))}
-          </div>
-          <p className="text-xs text-muted-foreground mt-4">* Цены ориентировочные. Актуальный прайс — по запросу.</p>
-        </div>
+        <img
+          src={plywood}
+          alt="Фанера на складе в Екатеринбурге"
+          width={1024}
+          height={1024}
+          className="relative w-full h-auto rounded-2xl shadow-elegant object-cover"
+        />
       </div>
     </div>
   </section>
