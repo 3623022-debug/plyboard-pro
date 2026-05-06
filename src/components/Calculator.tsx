@@ -34,23 +34,32 @@ interface Props {
 
 const Calculator = ({ onOrder }: Props) => {
   const [type, setType] = useState(TYPES[1].id);
-  const [size, setSize] = useState(SIZES[1].id);
+  const availableSizes = useMemo(
+    () => ALL_SIZES.filter(s => SIZES_BY_TYPE[type].includes(s.id)),
+    [type]
+  );
+  const [size, setSize] = useState(availableSizes[0].id);
   const [thick, setThick] = useState(18);
   const [qty, setQty] = useState(50);
   const [mode, setMode] = useState<"sheets" | "area">("sheets");
   const [area, setArea] = useState(100);
 
+  // Reset size when type changes if current size unavailable
+  if (!availableSizes.find(s => s.id === size)) {
+    setSize(availableSizes[0].id);
+  }
+
   const result = useMemo(() => {
     const t = TYPES.find(x => x.id === type)!;
-    const s = SIZES.find(x => x.id === size)!;
-    const sheetArea = (s.l * s.w) / 1_000_000; // m²
-    const sheetVol = sheetArea * (thick / 1000); // m³
+    const s = (availableSizes.find(x => x.id === size) ?? availableSizes[0]);
+    const sheetArea = (s.l * s.w) / 1_000_000;
+    const sheetVol = sheetArea * (thick / 1000);
     const sheets = mode === "sheets" ? qty : Math.ceil(area / sheetArea);
     const totalArea = sheets * sheetArea;
     const totalVol = sheets * sheetVol;
     const price = totalVol * t.priceM3;
     return { sheets, sheetArea, totalArea, totalVol, price, t, s };
-  }, [type, size, thick, qty, mode, area]);
+  }, [type, size, thick, qty, mode, area, availableSizes]);
 
   const summary = `${result.t.name} ${result.s.l}×${result.s.w}×${thick} мм · ${result.sheets} лист. · ${result.totalArea.toFixed(2)} м² · ${result.totalVol.toFixed(3)} м³ · ≈ ${Math.round(result.price).toLocaleString("ru-RU")} ₽`;
 
@@ -80,7 +89,7 @@ const Calculator = ({ onOrder }: Props) => {
 
             <Field label="Формат листа, мм">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {SIZES.map(s => (
+                {availableSizes.map(s => (
                   <button key={s.id} onClick={() => setSize(s.id)} type="button"
                     className={`px-3 py-2.5 rounded-lg text-sm font-semibold border transition-smooth ${size === s.id ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:border-primary"}`}>
                     {s.l}×{s.w}
