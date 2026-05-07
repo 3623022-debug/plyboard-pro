@@ -7,9 +7,9 @@ const Hero = () => (
     }} />
     <div className="container relative py-24 lg:py-32 max-w-4xl mx-auto">
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-medium mb-6">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          Склад в Екатеринбурге · Отгрузка по всей России
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/30 text-sm md:text-base font-semibold mb-6 shadow-soft">
+          <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+          Склад в Екатеринбурге · Отгрузка по России и на экспорт
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
           Фанера со склада<br />
