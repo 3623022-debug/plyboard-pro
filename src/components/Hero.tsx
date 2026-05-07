@@ -1,12 +1,11 @@
 import { ArrowRight, Truck, ShieldCheck, Warehouse, Award } from "lucide-react";
-import plywood from "@/assets/plywood.jpg";
 
 const Hero = () => (
   <section id="top" className="relative overflow-hidden bg-hero text-primary-foreground">
     <div className="absolute inset-0 opacity-20" style={{
       backgroundImage: "radial-gradient(circle at 20% 20%, hsl(207 100% 88% / 0.4), transparent 40%), radial-gradient(circle at 80% 80%, hsl(211 38% 52% / 0.5), transparent 40%)"
     }} />
-    <div className="container relative py-24 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+    <div className="container relative py-24 lg:py-32 max-w-4xl mx-auto">
       <div>
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-medium mb-6">
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -36,21 +35,11 @@ const Hero = () => (
           ].map((x, i) => (
             <div key={i}>
               <x.icon className="w-5 h-5 text-accent mb-2" />
-              <div className="text-2xl font-bold">{x.t}</div>
+              <div className="text-2xl font-bold whitespace-nowrap">{x.t}</div>
               <div className="text-xs text-primary-foreground/70">{x.s}</div>
             </div>
           ))}
         </div>
-      </div>
-      <div className="relative hidden lg:block">
-        <div className="absolute -inset-8 bg-accent/20 blur-3xl rounded-full" />
-        <img
-          src={plywood}
-          alt="Фанера на складе в Екатеринбурге"
-          width={1024}
-          height={1024}
-          className="relative w-full h-auto rounded-2xl shadow-elegant object-cover"
-        />
       </div>
     </div>
   </section>
