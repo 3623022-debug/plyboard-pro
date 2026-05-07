@@ -1,13 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Calculator as CalcIcon } from "lucide-react";
+import { loadPrices, PRICE_LABELS } from "@/lib/prices";
 
-const TYPES = [
-  { id: "fk", name: "ФК", priceM3: 32000 },
-  { id: "fsf", name: "ФСФ", priceM3: 38000 },
-  { id: "lam", name: "Ламинированная", priceM3: 52000 },
-  { id: "bak", name: "Бакелитовая", priceM3: 145000 },
-  { id: "tg", name: "Трудногорючая", priceM3: 68000 },
-];
+const TYPE_IDS = ["fk", "fsf", "lam", "bak", "tg"] as const;
 
 const ALL_SIZES = [
   { id: "1525", l: 1525, w: 1525 },
