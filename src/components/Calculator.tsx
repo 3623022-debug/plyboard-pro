@@ -1,13 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Calculator as CalcIcon } from "lucide-react";
+import { loadPrices, PRICE_LABELS } from "@/lib/prices";
 
-const TYPES = [
-  { id: "fk", name: "ФК", priceM3: 32000 },
-  { id: "fsf", name: "ФСФ", priceM3: 38000 },
-  { id: "lam", name: "Ламинированная", priceM3: 52000 },
-  { id: "bak", name: "Бакелитовая", priceM3: 145000 },
-  { id: "tg", name: "Трудногорючая", priceM3: 68000 },
-];
+const TYPE_IDS = ["fk", "fsf", "lam", "bak", "tg"] as const;
 
 const ALL_SIZES = [
   { id: "1525", l: 1525, w: 1525 },
@@ -33,7 +28,23 @@ interface Props {
 }
 
 const Calculator = ({ onOrder }: Props) => {
-  const [type, setType] = useState(TYPES[1].id);
+  const [prices, setPrices] = useState(loadPrices());
+  useEffect(() => {
+    const handler = () => setPrices(loadPrices());
+    window.addEventListener("prices-updated", handler);
+    window.addEventListener("storage", handler);
+    return () => {
+      window.removeEventListener("prices-updated", handler);
+      window.removeEventListener("storage", handler);
+    };
+  }, []);
+
+  const TYPES = useMemo(
+    () => TYPE_IDS.map((id) => ({ id, name: PRICE_LABELS[id], priceM3: prices[id] })),
+    [prices]
+  );
+
+  const [type, setType] = useState<string>(TYPE_IDS[1]);
   const availableSizes = useMemo(
     () => ALL_SIZES.filter(s => SIZES_BY_TYPE[type].includes(s.id)),
     [type]
@@ -59,7 +70,7 @@ const Calculator = ({ onOrder }: Props) => {
     const totalVol = sheets * sheetVol;
     const price = totalVol * t.priceM3;
     return { sheets, sheetArea, totalArea, totalVol, price, t, s };
-  }, [type, size, thick, qty, mode, area, availableSizes]);
+  }, [type, size, thick, qty, mode, area, availableSizes, TYPES]);
 
   const summary = `${result.t.name} ${result.s.l}×${result.s.w}×${thick} мм · ${result.sheets} лист. · ${result.totalArea.toFixed(2)} м² · ${result.totalVol.toFixed(3)} м³ · ≈ ${Math.round(result.price).toLocaleString("ru-RU")} ₽`;
 

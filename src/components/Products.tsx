@@ -11,10 +11,10 @@ const products = [
 const Products = () => (
   <section id="products" className="py-24 bg-soft">
     <div className="container">
-      <div className="max-w-2xl mb-14">
+      <div className="max-w-5xl mb-14">
         <div className="text-sm font-semibold text-primary-glow uppercase tracking-wider mb-3">Каталог</div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">Все виды фанеры со склада</h2>
-        <p className="text-muted-foreground text-lg">Поставляем продукцию российских фанерных комбинатов с полным пакетом документов.</p>
+        <p className="text-muted-foreground text-lg lg:whitespace-nowrap">Поставляем продукцию российских фанерных комбинатов с полным пакетом документов.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((p, i) => (
