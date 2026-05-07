@@ -5,7 +5,7 @@ const Hero = () => (
     <div className="absolute inset-0 opacity-20" style={{
       backgroundImage: "radial-gradient(circle at 20% 20%, hsl(207 100% 88% / 0.4), transparent 40%), radial-gradient(circle at 80% 80%, hsl(211 38% 52% / 0.5), transparent 40%)"
     }} />
-    <div className="container relative py-24 lg:py-32 max-w-4xl mx-auto">
+    <div className="container relative py-24 lg:py-32 max-w-6xl mx-auto">
       <div>
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/30 text-sm md:text-base font-semibold mb-6 shadow-soft">
           <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
@@ -15,7 +15,7 @@ const Hero = () => (
           Фанера со склада<br />
           <span className="text-accent">всех видов и размеров</span>
         </h1>
-        <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl">
+        <p className="text-base lg:text-lg text-primary-foreground/80 mb-8 lg:whitespace-nowrap">
           ФК, ФСФ, ламинированная, бакелитовая, трудногорючая. Форматы от 1525×1525 до 3000×1500 мм. Сертификаты, гарантия качества, оптовые цены.
         </p>
         <div className="flex flex-wrap gap-4">
