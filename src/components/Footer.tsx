@@ -37,7 +37,10 @@ const Footer = () => (
     </div>
     <div className="container mt-10 pt-6 border-t border-white/10 text-xs text-primary-foreground/50 flex flex-wrap justify-between gap-2">
       <div>© {new Date().getFullYear()} «Русская Фанера». Все права защищены.</div>
-      <div>Сайт оптимизирован для Яндекс и Google.</div>
+      <div className="flex items-center gap-3">
+        <span>Сайт оптимизирован для Яндекс и Google.</span>
+        <a href="/admin" className="text-primary-foreground/20 hover:text-primary-foreground/60 transition-smooth" title="Админ">·</a>
+      </div>
     </div>
   </footer>
 );
