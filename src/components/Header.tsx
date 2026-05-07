@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-primary-deep text-primary-foreground border-b border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur-xl text-primary-foreground border-b border-white/10" style={{ background: "hsl(var(--primary-deep))" }}>
       <div className="container flex items-center justify-between py-3">
         <a href="#top" className="flex items-center gap-3">
           <img src={logo} alt="Русская Фанера логотип" className="h-12 w-12 object-contain" />
