@@ -1,4 +1,4 @@
-import { Truck, Award, Banknote, Clock, Headset, FileCheck, Globe2 } from "lucide-react";
+import { Truck, Award, Banknote, Clock, FileCheck, Globe2 } from "lucide-react";
 
 const items = [
   { icon: Award, title: "12 лет на рынке", desc: "Прямые контракты с фанерными комбинатами России." },
@@ -7,7 +7,7 @@ const items = [
   { icon: Globe2, title: "Экспорт в страны СНГ", desc: "Отгружаем на экспорт: оформление документов и логистика под ключ." },
   { icon: Clock, title: "Отгрузка за 24 часа", desc: "Большой склад — отгрузка в день заказа." },
   { icon: FileCheck, title: "Полный пакет документов", desc: "Сертификаты, ГОСТ, ТТН, счёт-фактуры." },
-  { icon: Headset, title: "Персональный менеджер", desc: "Поможет подобрать материал и оформит заявку." },
+  
 ];
 
 const Advantages = () => (
