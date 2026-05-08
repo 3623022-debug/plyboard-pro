@@ -1,4 +1,4 @@
-import { Truck, Award, Banknote, Clock, Headset, FileCheck, Globe2 } from "lucide-react";
+import { Truck, Award, Banknote, Clock, FileCheck, Globe2 } from "lucide-react";
 
 const items = [
   { icon: Award, title: "12 лет на рынке", desc: "Прямые контракты с фанерными комбинатами России." },
