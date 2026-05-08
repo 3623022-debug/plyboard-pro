@@ -13,9 +13,9 @@ const items = [
 const Advantages = () => (
   <section id="advantages" className="py-24 bg-deep text-primary-foreground">
     <div className="container">
-      <div className="max-w-2xl mb-14">
+      <div className="mb-14">
         <div className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Почему мы</div>
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Преимущества работы с «Русской Фанерой»</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 whitespace-nowrap">Преимущества работы с «Русской Фанерой»</h2>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((x, i) => (
