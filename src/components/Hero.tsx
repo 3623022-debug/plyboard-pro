@@ -15,8 +15,11 @@ const Hero = () => (
           Фанера со склада<br />
           <span className="text-accent">всех видов и размеров</span>
         </h1>
-        <p className="text-base lg:text-lg text-primary-foreground/80 mb-8 lg:whitespace-nowrap">
-          ФК, ФСФ, ламинированная, бакелитовая, трудногорючая. Форматы от 1525×1525 до 3000×1500 мм. Сертификаты, гарантия качества, оптовые цены.
+        <p className="text-base lg:text-lg text-primary-foreground/80 mb-2 lg:whitespace-nowrap">
+          ФК, ФСФ, ламинированная, бакелитовая, трудногорючая.
+        </p>
+        <p className="text-base lg:text-lg text-primary-foreground/80 mb-8">
+          Форматы от 1525×1525 до 3000×1500 мм. Сертификаты, гарантия качества, оптовые цены.
         </p>
         <div className="flex flex-wrap gap-4">
           <a href="#calculator" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3.5 rounded-lg font-semibold hover:bg-accent/90 transition-smooth shadow-elegant">
