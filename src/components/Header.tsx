@@ -6,7 +6,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 backdrop-blur-xl text-primary-foreground border-b border-white/10" style={{ background: "hsl(var(--primary-deep))" }}>
       <div className="container flex items-center justify-between py-3">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="Русская Фанера логотип" className="h-11 w-11 object-contain rounded-lg bg-primary-foreground/95 p-1.5 shadow-soft" />
+          <img src={logo} alt="Русская Фанера логотип" className="h-11 w-11 object-contain rounded-lg p-0.5 shadow-soft" />
           <div className="hidden sm:block leading-tight">
             <div className="font-bold text-lg">Русская Фанера</div>
             <div className="text-xs text-primary-foreground/70">Склад в Екатеринбурге</div>
