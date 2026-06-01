@@ -12,8 +12,8 @@ const Hero = () => (
           Склад в Екатеринбурге · Отгрузка по России и на экспорт
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-          Фанера со склада<br />
-          <span className="text-accent">всех видов и размеров</span>
+          Фанера в Екатеринбурге<br />
+          <span className="text-accent">купить со склада: все виды и размеры</span>
         </h1>
         <p className="text-base lg:text-lg text-primary-foreground/80 mb-2 lg:whitespace-nowrap">
           ФК, ФСФ, ламинированная, бакелитовая, трудногорючая.
