@@ -14,7 +14,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <h1 className="sr-only">Русская Фанера — продажа фанеры ФК, ФСФ, ламинированной, бакелитовой и трудногорючей в Екатеринбурге</h1>
         <Hero />
         <Products />
         <Calculator onOrder={setCalcSummary} />
