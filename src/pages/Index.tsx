@@ -5,6 +5,7 @@ import Products from "@/components/Products";
 import Calculator from "@/components/Calculator";
 import Advantages from "@/components/Advantages";
 import ContactForm from "@/components/ContactForm";
+import SeoContent from "@/components/SeoContent";
 import Footer from "@/components/Footer";
 
 const Index = () => {
