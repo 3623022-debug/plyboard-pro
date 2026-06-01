@@ -101,6 +101,31 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>{product.seoTitle}</title>
+        <meta name="description" content={product.seoDescription} />
+        <meta name="keywords" content={product.keywords} />
+        <link rel="canonical" href={`https://russply.ru/product/${product.slug}`} />
+        <meta property="og:type" content="product" />
+        <meta property="og:title" content={product.seoTitle} />
+        <meta property="og:description" content={product.seoDescription} />
+        <meta property="og:url" content={`https://russply.ru/product/${product.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.title,
+          description: product.seoDescription,
+          category: "Фанера",
+          brand: { "@type": "Brand", name: "Русская Фанера" },
+          offers: {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            priceCurrency: "RUB",
+            url: `https://russply.ru/product/${product.slug}`,
+            seller: { "@type": "Organization", name: "Русская Фанера" },
+          },
+        })}</script>
+      </Helmet>
       <Header />
       <main className="flex-1 bg-soft py-12">
         <div className="container max-w-5xl">
