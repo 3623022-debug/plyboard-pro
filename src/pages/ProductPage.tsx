@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Upload, Trash2, Lock, FileText } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getProduct } from "@/lib/products";
