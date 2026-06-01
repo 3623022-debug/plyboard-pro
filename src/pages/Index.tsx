@@ -19,6 +19,7 @@ const Index = () => {
         <Products />
         <Calculator onOrder={setCalcSummary} />
         <Advantages />
+        <SeoContent />
         <ContactForm prefillCalc={calcSummary} />
       </main>
       <Footer />
