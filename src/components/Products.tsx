@@ -6,7 +6,7 @@ const Products = () => (
     <div className="container">
       <div className="max-w-5xl mb-14">
         <div className="text-sm font-semibold text-primary-glow uppercase tracking-wider mb-3">Каталог</div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">Все виды фанеры со склада</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-4">Каталог фанеры — купить со склада в Екатеринбурге</h2>
         <p className="text-muted-foreground text-lg lg:whitespace-nowrap">Поставляем продукцию российских фанерных комбинатов с полным пакетом документов.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
